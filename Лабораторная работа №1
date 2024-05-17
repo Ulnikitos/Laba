@@ -20,18 +20,18 @@ for i in range(len(File)):
     if flag == True:
         c += 1
         Chisla.append(int(File[i]))
-print('Числа без незначащих нулей')
-print(Chisla)
-
-for i in range(len(Chisla)):
-    number = str(Chisla[i])
-    for j in range(len(number)):
-        if int(number[j]) not in Cifri:
-            Cifri.append(int(number[j]))
-
-print("Список используемых цифр: ")
-for i in Cifri:
-    print(number_dict[i], end=" ")
-
 if c == 0:
     print('Чисел в данном файле нет!')
+else:
+    print('Список чисел без значащих нулей:')
+    print(Chisla)
+
+    for i in range(len(Chisla)):
+        number = str(Chisla[i])
+        for j in range(len(number)):
+            if int(number[j]) not in Cifri:
+                Cifri.append(int(number[j]))
+
+    print("Список используемых цифр: ")
+    for i in Cifri:
+        print(number_dict[i], end=" ")
