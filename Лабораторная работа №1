@@ -1,0 +1,37 @@
+# Натуральные числа, начинающиеся с не менее чем 3 нулей. Вывести числа без незначащих нулей. Список используемых цифр вывести прописью'
+number_dict = {0: 'ноль',
+          1: 'один',
+          2: 'два',
+          3: 'три',
+          4: 'четыре',
+          5: 'пять',
+          6: 'шесть',
+          7: 'семь',
+          8: 'восемь',
+          9: 'девять'}
+f = open('laba.txt')
+File = (f.read())
+File = File.split()
+Chisla = []
+Cifri = []
+c = 0
+for i in range(len(File)):
+    flag = File[i].isdigit()
+    if flag == True:
+        c += 1
+        Chisla.append(int(File[i]))
+print('Числа без незначащих нулей')
+print(Chisla)
+
+for i in range(len(Chisla)):
+    number = str(Chisla[i])
+    for j in range(len(number)):
+        if int(number[j]) not in Cifri:
+            Cifri.append(int(number[j]))
+
+print("Список используемых цифр: ")
+for i in Cifri:
+    print(number_dict[i], end=" ")
+
+if c == 0:
+    print('Чисел в данном файле нет!')
