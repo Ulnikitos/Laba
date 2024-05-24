@@ -19,7 +19,8 @@ for i in range(len(File)):
     flag = File[i].isdigit()
     if flag == True:
         c += 1
-        Chisla.append(int(File[i]))
+        if File[i][:3] == '000':
+            Chisla.append(int(File[i]))
 if c == 0:
     print('Чисел в данном файле нет!')
 else:
