@@ -12,21 +12,22 @@ number_dict = {0: 'ноль',
           9: 'девять'}
 f = open('laba.txt')
 File = (f.read())
-Chisla = (re.findall('\d+', File))
+mass = (re.findall('\d+', File))
 Cifri = []
-Chisla = [int(i) for i in Chisla]
+Chisla = []
+for i in range(len(mass)):
+    if mass[i][:3] == '000':
+        Chisla.append(int(mass[i]))
 if len(Chisla) == 0:
     print('Чисел в данном файле нет!')
 else:
     print('Список чисел без значащих нулей:')
     print(Chisla)
-
     for i in range(len(Chisla)):
         number = str(Chisla[i])
         for j in range(len(number)):
             if int(number[j]) not in Cifri:
                 Cifri.append(int(number[j]))
-
     print("Список используемых цифр: ")
     for i in Cifri:
         print(number_dict[i], end=" ")
