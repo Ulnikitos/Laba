@@ -12,13 +12,16 @@ number_dict = {0: 'ноль',
           9: 'девять'}
 f = open('laba.txt')
 File = (f.read())
-mass = (re.findall('\d+', File))
-Cifri = []
+File = File.split()
 Chisla = []
-for i in range(len(mass)):
-    if mass[i][:3] == '000':
-        Chisla.append(int(mass[i]))
-if len(Chisla) == 0:
+Cifri = []
+c = 0
+for i in range(len(File)):
+    if re.fullmatch(r'\d+', File[i]):  # проверка, что строка состоит только из цифр
+        c += 1
+        if re.match(r'000', File[i]):  # проверка на три нуля в начале
+            Chisla.append(int(File[i]))
+if c == 0:
     print('Чисел в данном файле нет!')
 else:
     print('Список чисел без значащих нулей:')
