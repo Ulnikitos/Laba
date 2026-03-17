@@ -22,9 +22,9 @@ Chisla = []
 Cifri = []
 c = 0
 for i in range(len(File)):
-    if re.fullmatch(r'\d+', File[i]):  # проверка, что строка состоит только из цифр
+    if re.fullmatch(r'\d+', File[i]):
         c += 1
-        if re.match(r'000', File[i]):  # проверка на три нуля в начале
+        if re.match(r'000', File[i]):
             Chisla.append(int(File[i]))
 if c == 0:
     print('Чисел в данном файле нет!')
